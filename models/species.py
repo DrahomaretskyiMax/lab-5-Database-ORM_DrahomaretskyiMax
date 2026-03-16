@@ -14,3 +14,6 @@ class Species(SpeciesBase, table=True):
 
 class SpeciesCreate(SpeciesBase):
     pass
+
+class SpeciesPublic(SQLModel):
+    name: str
