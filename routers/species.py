@@ -13,9 +13,14 @@ def get_species_repository(
     return SpeciesRepository(session)
 
 @router.get("/", response_model=List[Species])
-async def get_species(repo: Annotated[SpeciesRepository, Depends(get_species_repository)]):
+async def get_species(
+    repo: Annotated[SpeciesRepository, Depends(get_species_repository)]
+):
     return repo.get_all()
 
 @router.post("/", response_model=Species)
-async def add_species(species: SpeciesCreate, repo: Annotated[SpeciesRepository, Depends(get_species_repository)]):
+async def add_species(
+    species: SpeciesCreate, 
+    repo: Annotated[SpeciesRepository, Depends(get_species_repository)]
+):
     return repo.insert(species)

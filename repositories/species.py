@@ -15,4 +15,5 @@ class SpeciesRepository:
         self.session.add(item)
         self.session.commit()
         self.session.refresh(item)
+        
         return item

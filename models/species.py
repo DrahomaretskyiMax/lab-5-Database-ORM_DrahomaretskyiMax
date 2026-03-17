@@ -10,6 +10,8 @@ class SpeciesBase(SQLModel):
     wingspan_cm: Decimal
 
 class Species(SpeciesBase, table=True):
+    __tablename__ = "species"
+
     id: Optional[int] = Field(default=None, primary_key=True)
 
 class SpeciesCreate(SpeciesBase):
